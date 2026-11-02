@@ -1,0 +1,19 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <AdapterViewFlipper
+        android:id="@+id/flipperView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:loopViews="true"
+        android:autoStart="true"
+        android:flipInterval="3000" />
+
+    <TextView
+        android:id="@+id/flipperEmptyView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="No Images Found" />
+</FrameLayout>

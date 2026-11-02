@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MDV4301_JonesGio_CE02</string>
+    <string name="album_art">Album Art</string>
+    <string name="no_track_playing">No Track Playing</string>
+    <string name="media_player_service">Media Player Service</string>
+    <string name="previous_track">Previous Track</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="next_track">Next Track</string>
+    <string name="shuffle_on">Shuffle: ON</string>
+    <string name="shuffle_off">Shuffle: OFF</string>
+    <string name="loop_off">Loop: OFF</string>
+    <string name="loop_on">Loop: ON</string>
+</resources>

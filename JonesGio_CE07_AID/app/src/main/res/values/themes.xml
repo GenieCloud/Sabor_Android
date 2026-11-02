@@ -1,0 +1,8 @@
+<resources>
+    <style name="Theme.JonesGio_CE07_AID" parent="@android:style/Theme.DeviceDefault">
+
+        <item name="android:colorPrimary">#6200EE</item>
+        <item name="android:colorPrimaryDark">#3700B3</item>
+
+    </style>
+</resources>

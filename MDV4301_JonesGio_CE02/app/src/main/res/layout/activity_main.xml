@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="24dp"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/iv_album_art"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="32dp"
+        android:scaleType="centerCrop"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:contentDescription="@string/album_art" />
+
+    <TextView
+        android:id="@+id/tv_track_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/no_track_playing"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_track_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/media_player_service"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray" />
+
+    <SeekBar
+        android:id="@+id/seekbar_playback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:max="100" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_previous"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginEnd="12dp"
+            android:src="@android:drawable/ic_media_previous"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/previous_track" />
+
+        <ImageButton
+            android:id="@+id/btn_play"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginEnd="12dp"
+            android:src="@android:drawable/ic_media_play"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/play" />
+
+        <ImageButton
+            android:id="@+id/btn_pause"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginEnd="12dp"
+            android:src="@android:drawable/ic_media_pause"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/pause" />
+
+        <ImageButton
+            android:id="@+id/btn_next"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@android:drawable/ic_media_next"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/next_track" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ToggleButton
+            android:id="@+id/toggle_shuffle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:textOn="@string/shuffle_on"
+            android:textOff="@string/shuffle_off"
+            android:checked="false" />
+
+        <ToggleButton
+            android:id="@+id/toggle_loop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="@string/loop_on"
+            android:textOff="@string/loop_off"
+            android:checked="false" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">JonesGio_CE03_AID</string>
+    <string name="text_color">Text Color</string>
+    <string name="enter_text_here">Enter text here...</string>
+    <string name="background_color">Background Color</string>
+    <string name="text">Text</string>
+    <string name="display_icon">Display Icon</string>
+    <string name="bold_text">Bold Text</string>
+    <string name="white">White</string>
+    <string name="grey">Grey</string>
+    <string name="black">Black</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+    <string name="red">Red</string>
+    <string name="icon">Icon</string>
+</resources>

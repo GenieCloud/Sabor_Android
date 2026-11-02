@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Records</title>
+</head>
+<body>
+
+<h2>My Records</h2>
+
+<p><a href="my-app-schema://form-screen">➕ Add New Record</a></p>
+
+<ul id="recordList">
+</ul>
+
+<script>
+    // A helper function that your Android Java code can trigger
+    // to pass the prepared HTML list items straight into the DOM
+    function displayRecords(htmlContent) {
+        document.getElementById('recordList').innerHTML = htmlContent;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingVertical="12dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/reviewAvatar"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_launcher_background"
+            android:contentDescription="@string/Avatar" />
+
+        <TextView
+            android:id="@+id/reviewAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/reviewAvatar"
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            tools:text="Jane Doe" />
+
+        <TextView
+            android:id="@+id/reviewDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="12sp"
+            android:textColor="@android:color/darker_gray"
+            tools:text="May 17, 2026" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="6dp">
+
+        <TextView
+            android:id="@+id/reviewRatingStars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="14sp"
+            tools:text="★★★★★" />
+
+        <TextView
+            android:id="@+id/reviewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            tools:text="Test Application" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/reviewText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="14sp"
+        android:textColor="@android:color/tab_indicator_text"
+        tools:text="This is a test app." />
+
+</LinearLayout>

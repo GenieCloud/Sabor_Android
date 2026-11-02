@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">JonesGio_CE02</string>
+    <string name="btn_submit">Submit</string>
+    <string name="error_all_fields_required">Please fill in all 4 boxes!</string>
+    <string name="guesses_left">Guesses remaining:</string>
+    <string name="win_title">You Won!</string>
+    <string name="win_message">Great job! You guessed the sequence.</string>
+    <string name="loss_title">Game Over</string>
+    <string name="loss_message">You ran out of guesses. Try again!</string>
+    <string name="btn_restart">Restart Game</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="name_formats">
+        <item>FirstName LastName</item>
+        <item>LastName, FirstName</item>
+    </string-array>
+
+    <integer-array name="name_format_values">
+        <item>0</item>
+        <item>1</item>
+    </integer-array>
+
+    <string-array name="number_formats">
+        <item>407-555-0123</item>
+        <item>(407)555-0123</item>
+        <item>407 555 0123</item>
+    </string-array>
+
+    <integer-array name="number_format_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </integer-array>
+</resources>

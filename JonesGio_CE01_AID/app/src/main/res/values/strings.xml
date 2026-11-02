@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">JonesGio_CE01_AID</string>
+    <string name="i_am_a_computer_science_student_at_full_sail_university">I am a Computer Science Student at Full Sail University.</string>
+    <string name="about_me">About Me</string>
+    <string name="cooking_traveling_web_design">Cooking, Traveling, Web Design</string>
+    <string name="hobbies">Hobbies</string>
+    <string name="portsmouth_va">Portsmouth, VA</string>
+    <string name="hometown">Hometown</string>
+    <string name="july_16">July 16</string>
+    <string name="birthday">Birthday</string>
+    <string name="gio_jones">Gio Jones</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="i_am_a_computer_student_at_full_sail_university">I am a Computer Student at Full Sail University.</string>
+    <string name="about_me_linear">About Me</string>
+    <string name="cooking_traveling_web_design_linear">Cooking, Traveling, Web Design</string>
+    <string name="hobbies_linear">Hobbies</string>
+    <string name="portsmouth_va_linear">Portsmouth, VA</string>
+    <string name="hometown_linear">Hometown</string>
+    <string name="july_16_linear">July 16</string>
+    <string name="birthday_linear">Birthday</string>
+    <string name="gio_jones_linear">Gio Jones</string>
+    <string name="profile_picture_linear">Profile Picture</string>
+</resources>

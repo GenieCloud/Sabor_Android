@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">JonesGio_CE04</string>
+    <string name="person_image">Person Picture</string>
+
+    <string-array name="view_options">
+        <item>List View</item>
+        <item>Grid View</item>
+    </string-array>
+
+    <string-array name="adapter_options">
+        <item>Array Adapter</item>
+        <item>Simple Adapter</item>
+        <item>Base Adapter</item>
+    </string-array>
+
+
+</resources>

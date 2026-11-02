@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">JonesGio_CE05</string>
+
+    <string name="label_title">Title: %1$s</string>
+    <string name="label_description">Description: %1$s</string>
+    <string name="label_issues">Issue Count: %1$d</string>
+    <string name="label_date">Published: %1$s</string>
+</resources>

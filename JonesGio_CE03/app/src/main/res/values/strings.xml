@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Letter Counting App</string>
+    <string name="hint_enter_string">Enter a word to add</string>
+    <string name="button_label_add">ADD</string>
+    <string name="button_label_view">VIEW</string>
+    <string name="label_average">Average word length:</string>
+    <string name="label_median">Median word length:</string>
+    <string name="label_select_index">Select an index to view:</string>
+
+    <string name="error_empty">String cannot be empty.</string>
+    <string name="error_duplicate">That word already exists.</string>
+    <string name="dialog_close">Close</string>
+    <string name="dialog_remove">Remove</string>
+</resources>

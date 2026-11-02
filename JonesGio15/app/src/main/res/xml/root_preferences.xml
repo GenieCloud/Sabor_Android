@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        app:defaultValue="MM/dd/yyyy"
+        app:entries="@array/date_format_entries"
+        app:entryValues="@array/date_format_values"
+        app:key="date_format_pref"
+        app:title="Select Date Format"
+        app:useSimpleSummaryProvider="true" />
+
+    <Preference
+        app:key="clear_database_pref"
+        app:title="Delete All"
+        app:summary="Permanently delete all employees from the database" />
+
+</PreferenceScreen>

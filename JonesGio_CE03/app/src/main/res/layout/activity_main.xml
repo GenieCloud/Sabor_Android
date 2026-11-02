@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/edit_text_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_enter_string"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/button_add_string"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_label_add" />
+
+    <TextView
+        android:id="@+id/text_view_average_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/label_average" />
+    <TextView
+        android:id="@+id/text_view_average_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.00"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/text_view_median_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/label_median" />
+
+    <TextView
+        android:id="@+id/text_view_median_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.00"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button_view_string"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_label_view" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/label_select_index" />
+
+    <NumberPicker
+        android:id="@+id/number_picker_index"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

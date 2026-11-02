@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://tools.android.com/tools"
+    android:id="@+id/main" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:baselineAligned="false"
+    tools:context=".MainActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container_list"
+        android:name="com.example.jonesgio24.ContactListFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.35"
+        tools:layout="@layout/fragment_contact_list" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#CCCCCC" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container_details"
+        android:name="com.example.jonesgio24.ContactDetailsFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.65"
+        tools:layout="@layout/fragment_contact_details" />
+
+</LinearLayout>

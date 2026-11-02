@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <FrameLayout
+            android:id="@+id/frameLayout_display"
+            style="@style/FrameStyle.Portrait">
+
+            <ImageView
+                android:id="@+id/imageView_icon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:contentDescription="@string/display_icon" />
+
+            <TextView
+                android:id="@+id/textView_display"
+                style="@style/DisplayStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text" />
+        </FrameLayout>
+
+        <TextView
+            style="@style/TextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/background_color" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/rb_bg_red" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/red" android:checked="true" />
+            <RadioButton android:id="@+id/rb_bg_blue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/blue" />
+            <RadioButton android:id="@+id/rb_bg_green" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/green" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/editText_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/enter_text_here"
+            android:layout_marginTop="16dp"
+            android:inputType="textPersonName" />
+
+        <TextView
+            style="@style/TextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/text_color" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup_textColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/rb_text_black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/black" android:checked="true" />
+            <RadioButton android:id="@+id/rb_text_grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/grey" />
+            <RadioButton android:id="@+id/rb_text_white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/white" />
+        </RadioGroup>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_bold"
+            style="@style/TextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/bold_text" />
+
+    </LinearLayout>
+</ScrollView>

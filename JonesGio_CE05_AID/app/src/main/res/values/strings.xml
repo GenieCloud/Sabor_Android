@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JonesGio_CE05_AID</string>
+    <string name="error_rotate_device">Please rotate your phone to landscape mode to use this app.</string>
+    <string name="btn_refresh_text">Refresh</string>
+
+    <string-array name="spinner_options">
+        <item>Student</item>
+        <item>Teacher</item>
+        <item>Administrator</item>
+    </string-array>
+</resources>

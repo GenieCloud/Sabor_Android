@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Employee Manager</string>
+
+    <string name="title_employee_list">Employee Roster</string>
+    <string name="title_create_employee">Add New Employee</string>
+    <string name="title_update_employee">Update Employee Details</string>
+    <string name="title_preferences">Settings</string>
+
+    <string name="label_first_name">First Name</string>
+    <string name="label_last_name">Last Name</string>
+    <string name="label_emp_number">Employee Number</string>
+    <string name="label_hire_date">Hire Date</string>
+    <string name="label_status">Employment Status</string>
+
+    <string name="btn_save">Save Employee</string>
+    <string name="btn_update">Update</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_clear_all">Delete All Employees</string>
+
+    <string-array name="sort_columns_array">
+        <item>Employee Number</item>
+        <item>Employment Status</item>
+    </string-array>
+
+    <string-array name="sort_direction_array">
+        <item>Ascending</item>
+        <item>Descending</item>
+    </string-array>
+
+    <string-array name="date_format_entries">
+        <item>Jan 1st, 2000 (MMM d, yyyy)</item>
+        <item>01–01–2000 (MM-dd-yyyy)</item>
+        <item>1/1/2000 (M/d/yyyy)</item>
+    </string-array>
+
+    <string-array name="date_format_values">
+        <item>MMM d, yyyy</item>
+        <item>MM-dd-yyyy</item>
+        <item>M/d/yyyy</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_first_name">Enter first name</string>
+    <string name="enter_last_name">Enter last name</string>
+    <string name="enter_4_digit_id">Enter 4-digit ID</string>
+    <string name="tap_to_set_timestamp">Tap to set timestamp</string>
+    <string name="active_full_time_part_time">Active, Full-Time, Part-Time</string>
+</resources>

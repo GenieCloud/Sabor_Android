@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Details</title>
+</head>
+<body>
+
+<h2>Record Details</h2>
+
+<div>
+    <p><strong>Title:</strong> <span id="displayTitle">Loading...</span></p>
+    <p><strong>Description:</strong> <span id="displayDesc">Loading...</span></p>
+    <p><strong>Quantity:</strong> <span id="displayQty">Loading...</span></p>
+</div>
+
+<br>
+
+<form id="deleteForm">
+    <button type="submit" style="background-color: #ff4d4d; color: white;">Delete Record</button>
+</form>
+
+<p><a href="my-app-schema://list-screen">⬅️ Back to List</a></p>
+
+<script>
+    // Call Java to execute the delete workflow when clicked
+    document.getElementById('deleteForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (window.Android) {
+            window.Android.deleteRecord();
+        }
+    });
+
+    // Helper function that your Android Java code can call to inject the details dynamically
+    function populateDetails(title, desc, qty) {
+        document.getElementById('displayTitle').innerText = title;
+        document.getElementById('displayDesc').innerText = desc;
+        document.getElementById('displayQty').innerText = qty;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<resources>
+<string name="app_name">JonesGio_CE06</string>
+<string name="hint_00">00</string>
+<string name="separator_colon">:</string>
+<string name="btn_start">Start</string>
+<string name="btn_stop">Stop</string>
+
+<string name="error_invalid_time">Please enter a valid time.</string>
+<string name="timer_started">Timer has started!</string>
+<string name="timer_expired">The timer has expired.</string>
+<string name="timer_stopped_prefix">Timer stopped. Elapsed time: </string>
+</resources>

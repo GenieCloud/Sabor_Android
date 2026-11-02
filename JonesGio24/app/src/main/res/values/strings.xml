@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">JonesGio2.4</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_a_contact">Select a Contact</string>
+    <string name="phone_numbers">Phone Numbers</string>
+    <string name="no_details_loaded">No details loaded.</string>
+    <string name="contact_name">Contact Name</string>
+    <string name="_555_555_5555">(555) 555-5555</string>
+    <string name="please_rotate_the_device">Please rotate the device!</string>
+</resources>

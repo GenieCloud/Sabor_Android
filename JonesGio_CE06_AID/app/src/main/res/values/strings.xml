@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">JonesGio_CE06_AID</string>
+    <string name="add_new_contact">Add New Contact</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_contact_data_available">No contact data available.</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="save_contact">Save Contact</string>
+    <string name="contact_profile">Contact Profile</string>
+    <string name="name">Name:</string>
+    <string name="phone">Phone:</string>
+</resources>

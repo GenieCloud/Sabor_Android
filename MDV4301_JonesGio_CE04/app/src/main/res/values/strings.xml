@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MDV4301_CE04</string>
+    <string name="device_image_thumbnail">Device Image Thumbnail</string>
+    <string name="widget_image_thumbnail">Widget Image Thumbnail</string>
+    <string name="no_images_found">No Images Found</string>
+    <string name="flipper_image_thumbnail">Flipper Image Thumbnail</string>
+    <string name="flipper_widget_options">Flipper Widget Options</string>
+    <string name="add_widget">Add Widget</string>
+</resources>

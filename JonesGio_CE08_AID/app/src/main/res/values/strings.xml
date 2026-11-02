@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">JonesGio_CE08_AID</string>
+    <string name="add_new_item">Add New Item</string>
+    <string name="empty_list_message">No data available.\nTap the + button to add items. </string>
+    <string name="hint_item_name">Item Name</string>
+    <string name="hint_item_quantity">Item Quantity</string>
+    <string name="hint_item_category">Item Category\n</string>
+    <string name="action_save">Save</string>
+    <string name="error_fields_empty">Please fill out all fields.</string>
+    <string name="error_invalid_quantity">Please enter a valid number.</string>
+    <string name="action_share">Share</string>
+    <string name="action_delete">Delete</string>
+    <string name="dialog_delete_title">Confirm Deletion</string>
+    <string name="dialog_delete_message">Are you sure you want to remove this item?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="title_share_chooser">Share Item Details Via</string>
+    <string name="share_template">Item Description:\nName: %1$s\nQuantity: %2$d\nCategory: %3$s</string>
+    <string name="share">Share</string>
+    <string name="delete">Delete</string>
+    <string name="new_item_add">Add New Item</string>
+</resources>

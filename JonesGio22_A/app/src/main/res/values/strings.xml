@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">JonesGio2.2_A</string>
+    <string name="take_picture">Take Picture</string>
+    <string name="saved_capture">Saved capture</string>
+</resources>

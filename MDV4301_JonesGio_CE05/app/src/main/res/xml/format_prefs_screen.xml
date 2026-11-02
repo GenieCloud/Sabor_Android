@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Formatting Options">
+
+        <ListPreference android:title="@string/name_format"
+            android:summary="@string/name_format_summary"
+            android:key="com.fullsail.android.PREF_NAME_FORMAT"
+            android:entries="@array/name_formats"
+            android:entryValues="@array/name_format_values"/>
+
+        <ListPreference android:title="@string/number_format"
+            android:summary="@string/number_format_summary"
+            android:key="com.fullsail.android.PREF_NUMBER_FORMAT"
+            android:entries="@array/number_formats"
+            android:entryValues="@array/number_format_values"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">JonesGio_CE09</string>
+    <string name="error_no_network">Error: No network connection</string>
+    <string name="error_no_books">Error: No Books Found</string>
+</resources>
