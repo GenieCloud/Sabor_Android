@@ -39,11 +39,13 @@ android {
 dependencies {
     // Import the Firebase BoM (Bill of Materials)
     implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
-    // Add Firebase Authentication dependency
+
+    // Firebase Products (managed by BoM)
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-firestore")
 
-    // Existing dependencies
+    // Compose & AndroidX Dependencies
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
