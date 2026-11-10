@@ -96,7 +96,6 @@ fun NavGraph(
                 },
                 onGoogleSignUpClick = {
                     // TODO: Implement Google Sign-Up flow if needed
-
                 },
                 onNavigateToLogin = {
                     navController.popBackStack()
@@ -122,7 +121,6 @@ fun MainDashboardScreen(
     onLogout: () -> Unit = {}
 ) {
     val bottomNavController = rememberNavController()
-    val authRepository = AuthRepository()
 
     val items = listOf(
         Screen.Home,
@@ -147,11 +145,11 @@ fun MainDashboardScreen(
                         label = { screen.title?.let { Text(it) } },
                         selected = isSelected,
                         colors = NavigationBarItemDefaults.colors(
-                            selectedIconColor = NarangaOrange,       // Active icon color
-                            selectedTextColor = NarangaOrange,      // Active label color
-                            unselectedIconColor = AvocadoGreen.copy(alpha = 0.6f), // Inactive icon color
-                            unselectedTextColor = AvocadoGreen.copy(alpha = 0.6f), // Inactive label color
-                            indicatorColor = NarangaOrange.copy(alpha = 0.15f)     // Pill background behind selected icon
+                            selectedIconColor = NarangaOrange,
+                            selectedTextColor = NarangaOrange,
+                            unselectedIconColor = AvocadoGreen.copy(alpha = 0.6f),
+                            unselectedTextColor = AvocadoGreen.copy(alpha = 0.6f),
+                            indicatorColor = NarangaOrange.copy(alpha = 0.15f)
                         ),
                         onClick = {
                             if (currentRoute != screen.route) {
@@ -176,12 +174,7 @@ fun MainDashboardScreen(
         ) {
             // Home Tab
             composable(Screen.Home.route) {
-                HomeScreen(
-                    userName = authRepository.getCurrentUser()?.email?.substringBefore("@")?.uppercase() ?: "GIO",
-                    onRecipeClick = {
-                        // TODO: Navigate to Recipe Detail Screen
-                    }
-                )
+                HomeScreen()
             }
             // Explore Tab
             composable(Screen.Explore.route) {

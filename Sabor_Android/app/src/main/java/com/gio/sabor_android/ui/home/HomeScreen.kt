@@ -1,18 +1,23 @@
 package com.gio.sabor_android.ui.home
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BookmarkBorder
 import androidx.compose.material.icons.filled.ChatBubbleOutline
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -20,13 +25,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.gio.sabor_android.data.model.PostModel
+import com.gio.sabor_android.ui.feed.FeedViewModel
 import com.gio.sabor_android.ui.theme.AvocadoGreen
+import com.google.firebase.auth.FirebaseAuth
 
 @Composable
 fun HomeScreen(
-    userName: String = "GIO",
-    onRecipeClick: () -> Unit = {}
+    viewModel: FeedViewModel = viewModel()
 ) {
+    val posts by viewModel.posts.collectAsState()
+    val currentUserId = FirebaseAuth.getInstance().currentUser?.uid ?: ""
+
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
@@ -71,8 +82,10 @@ fun HomeScreen(
                 }
             }
 
-            // 2. Timeline Post Card (04_Home_Timeline exact wireframe layout)
-            item {
+            // 2. Dynamic Live Posts from Firestore (SCRUM-10 & SCRUM-11)
+            items(posts) { post ->
+                val isLikedByMe = post.likedByUsers[currentUserId] == true
+
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp),
@@ -83,11 +96,11 @@ fun HomeScreen(
                 ) {
                     Column(modifier = Modifier.fillMaxWidth()) {
 
-                        // Green Post Header Bar matching Figma wireframe
+                        // Green Post Header Bar
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .background(AvocadoGreen) // Green banner background
+                                .background(AvocadoGreen)
                                 .padding(horizontal = 12.dp, vertical = 10.dp),
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
@@ -96,7 +109,6 @@ fun HomeScreen(
                                 verticalAlignment = Alignment.CenterVertically,
                                 horizontalArrangement = Arrangement.spacedBy(8.dp)
                             ) {
-                                // Creator Avatar Circle
                                 Box(
                                     modifier = Modifier
                                         .size(36.dp)
@@ -105,7 +117,7 @@ fun HomeScreen(
                                     contentAlignment = Alignment.Center
                                 ) {
                                     Text(
-                                        text = "G",
+                                        text = post.userId.take(1).uppercase().ifEmpty { "G" },
                                         color = Color.White,
                                         fontWeight = FontWeight.Bold,
                                         fontSize = 16.sp
@@ -113,13 +125,13 @@ fun HomeScreen(
                                 }
                                 Column {
                                     Text(
-                                        text = "gio.sabor",
+                                        text = post.userId.ifEmpty { "gio.sabor" },
                                         fontWeight = FontWeight.Bold,
                                         fontSize = 14.sp,
                                         color = Color.White
                                     )
                                     Text(
-                                        text = "Posted 3hrs ago",
+                                        text = "Just now",
                                         fontSize = 11.sp,
                                         color = Color.White.copy(alpha = 0.8f)
                                     )
@@ -135,7 +147,7 @@ fun HomeScreen(
                             }
                         }
 
-                        // Recipe Hero Image Container (Tacos al Pastor placeholder)
+                        // Recipe Hero Image Container / Caption Title
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -144,14 +156,14 @@ fun HomeScreen(
                             contentAlignment = Alignment.Center
                         ) {
                             Text(
-                                text = "Tacos al Pastor",
+                                text = post.caption.ifEmpty { "Sabor Recipe" },
                                 color = Color.White,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 22.sp
                             )
                         }
 
-                        // Action Bar Icons
+                        // Action Bar Icons (Real-Time Like Hookup)
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -160,8 +172,18 @@ fun HomeScreen(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                                IconButton(onClick = { /* Like */ }, modifier = Modifier.size(24.dp)) {
-                                    Icon(imageVector = Icons.Default.FavoriteBorder, contentDescription = "Like", tint = MaterialTheme.colorScheme.onSurface)
+                                // Real-Time Like Button (SCRUM-11)
+                                IconButton(
+                                    onClick = {
+                                        viewModel.toggleLike(post.id, isLikedByMe)
+                                    },
+                                    modifier = Modifier.size(24.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = if (isLikedByMe) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                                        contentDescription = "Like",
+                                        tint = if (isLikedByMe) Color.Red else MaterialTheme.colorScheme.onSurface
+                                    )
                                 }
                                 IconButton(onClick = { /* Comment */ }, modifier = Modifier.size(24.dp)) {
                                     Icon(imageVector = Icons.Default.ChatBubbleOutline, contentDescription = "Comment", tint = MaterialTheme.colorScheme.onSurface)
@@ -175,9 +197,9 @@ fun HomeScreen(
                             }
                         }
 
-                        // Engagement Metrics
+                        // Engagement Metrics Counter
                         Text(
-                            text = "33 favorites • 15 comments",
+                            text = "${post.likesCount} favorites",
                             fontWeight = FontWeight.Bold,
                             fontSize = 13.sp,
                             color = MaterialTheme.colorScheme.onSurface,
@@ -192,22 +214,16 @@ fun HomeScreen(
                                 .padding(bottom = 16.dp)
                         ) {
                             Text(
-                                text = "gio.sabor ",
+                                text = "sabor_chef ",
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 13.sp,
                                 color = MaterialTheme.colorScheme.onSurface
                             )
                             Text(
-                                text = "Mmm...mucho sabor que! I love this recipe... ",
+                                text = post.caption,
                                 fontSize = 13.sp,
                                 color = MaterialTheme.colorScheme.onSurface,
                                 modifier = Modifier.weight(1f)
-                            )
-                            Text(
-                                text = "more",
-                                color = Color.Gray,
-                                fontSize = 13.sp,
-                                fontWeight = FontWeight.Medium
                             )
                         }
                     }

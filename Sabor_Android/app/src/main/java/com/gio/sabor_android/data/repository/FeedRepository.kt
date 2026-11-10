@@ -1,6 +1,6 @@
 package com.gio.sabor_android.data.repository
 
-import com.gio.sabor_android.data.model.PostModel // Make sure this matches your PostModel package
+import com.gio.sabor_android.data.model.PostModel
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
@@ -34,5 +34,44 @@ class FeedRepository {
 
         // Clean up the snapshot listener when the flow stops collecting
         awaitClose { listener.remove() }
+    }
+
+    // Real-time toggle for liking/unliking a post (SCRUM-11)
+    fun toggleLike(
+        postId: String,
+        userId: String,
+        isCurrentlyLiked: Boolean,
+        onSuccess: () -> Unit,
+        onError: (String) -> Unit
+    ) {
+        val postRef = firestore.collection("posts").document(postId)
+
+        firestore.runTransaction { transaction ->
+            val snapshot = transaction.get(postRef)
+            val currentLikes = snapshot.getLong("likesCount")?.toInt() ?: 0
+
+            @Suppress("UNCHECKED_CAST")
+            val likedMap = (snapshot.get("likedByUsers") as? MutableMap<String, Boolean>) ?: mutableMapOf()
+
+            if (isCurrentlyLiked) {
+                likedMap[userId] = false
+                transaction.update(
+                    postRef,
+                    "likesCount", (currentLikes - 1).coerceAtLeast(0),
+                    "likedByUsers", likedMap
+                )
+            } else {
+                likedMap[userId] = true
+                transaction.update(
+                    postRef,
+                    "likesCount", currentLikes + 1,
+                    "likedByUsers", likedMap
+                )
+            }
+        }.addOnSuccessListener {
+            onSuccess()
+        }.addOnFailureListener { e ->
+            onError(e.localizedMessage ?: "Failed to update like")
+        }
     }
 }
