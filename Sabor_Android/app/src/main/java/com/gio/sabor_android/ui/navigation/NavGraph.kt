@@ -31,6 +31,7 @@ import com.gio.sabor_android.ui.auth.RegisterScreen
 import com.gio.sabor_android.ui.explore.ExploreScreen
 import com.gio.sabor_android.ui.favorites.FavoritesScreen
 import com.gio.sabor_android.ui.home.HomeScreen
+import com.gio.sabor_android.ui.post.CreatePostScreen
 import com.gio.sabor_android.ui.profile.ProfileScreen
 import com.gio.sabor_android.ui.profile.SettingsScreen
 import com.gio.sabor_android.ui.theme.AvocadoGreen
@@ -50,7 +51,8 @@ sealed class Screen(
     object Explore : Screen("explore", "Explore", Icons.Default.Explore)
     object Favorites : Screen("favorites", "Favorites", Icons.Default.Favorite)
     object Profile : Screen("profile", "Profile", Icons.Default.Person)
-    object Settings : Screen("settings") // Added settings route
+    object Settings : Screen("settings")
+    object CreatePost : Screen("create_post")
 }
 
 @Composable
@@ -58,7 +60,6 @@ fun NavGraph(
     navController: NavHostController = rememberNavController()
 ) {
     val authRepository = AuthRepository()
-    // Check if user is already logged in to set the starting destination
     val startDestination = if (authRepository.getCurrentUser() != null) {
         "main_dashboard"
     } else {
@@ -77,9 +78,7 @@ fun NavGraph(
                         popUpTo(Screen.Login.route) { inclusive = true }
                     }
                 },
-                onGoogleSignInClick = {
-                    // TODO: Implement Google Sign-In flow if needed
-                },
+                onGoogleSignInClick = {},
                 onNavigateToSignUp = {
                     navController.navigate(Screen.Register.route)
                 }
@@ -94,9 +93,7 @@ fun NavGraph(
                         popUpTo(Screen.Register.route) { inclusive = true }
                     }
                 },
-                onGoogleSignUpClick = {
-                    // TODO: Implement Google Sign-Up flow if needed
-                },
+                onGoogleSignUpClick = {},
                 onNavigateToLogin = {
                     navController.popBackStack()
                 }
@@ -110,6 +107,19 @@ fun NavGraph(
                     navController.navigate(Screen.Login.route) {
                         popUpTo("main_dashboard") { inclusive = true }
                     }
+                },
+                onCreatePostClick = {
+                    navController.navigate(Screen.CreatePost.route)
+                }
+            )
+        }
+
+        // Create Post Screen Route (Handled at the root level so it covers the entire screen!)
+        composable(Screen.CreatePost.route) {
+            CreatePostScreen(
+                onNavigateBack = { navController.popBackStack() },
+                onPostSuccessfullyCreated = {
+                    navController.popBackStack()
                 }
             )
         }
@@ -118,7 +128,8 @@ fun NavGraph(
 
 @Composable
 fun MainDashboardScreen(
-    onLogout: () -> Unit = {}
+    onLogout: () -> Unit = {},
+    onCreatePostClick: () -> Unit = {}
 ) {
     val bottomNavController = rememberNavController()
 
@@ -174,7 +185,9 @@ fun MainDashboardScreen(
         ) {
             // Home Tab
             composable(Screen.Home.route) {
-                HomeScreen()
+                HomeScreen(
+                    onCreatePostClicked = onCreatePostClick
+                )
             }
             // Explore Tab
             composable(Screen.Explore.route) {
@@ -192,7 +205,7 @@ fun MainDashboardScreen(
                     }
                 )
             }
-            // Settings Screen (pushed from Profile gear icon)
+            // Settings Screen
             composable(Screen.Settings.route) {
                 SettingsScreen(
                     onBackClick = { bottomNavController.popBackStack() },

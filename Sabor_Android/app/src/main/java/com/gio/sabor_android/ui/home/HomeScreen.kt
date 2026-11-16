@@ -18,14 +18,17 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import coil.compose.AsyncImage
 import com.gio.sabor_android.ui.feed.FeedViewModel
 import com.gio.sabor_android.ui.theme.AvocadoGreen
 import com.google.firebase.auth.FirebaseAuth
@@ -67,7 +70,7 @@ fun HomeScreen(
                     .padding(horizontal = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                // 1. Top Bar Header
+                // Top Bar Header
                 item {
                     Row(
                         modifier = Modifier
@@ -166,21 +169,28 @@ fun HomeScreen(
                                 }
                             }
 
-                            // Recipe Hero Image Container / Caption Title
-                            Box(
+                            // Recipe Hero Image (Safely decodes Base64 data URL string into raw bytes for Coil)
+                            val imageModel = remember(post.imageUrl) {
+                                if (post.imageUrl.startsWith("data:image")) {
+                                    try {
+                                        val base64Data = post.imageUrl.substringAfter(",")
+                                        android.util.Base64.decode(base64Data, android.util.Base64.DEFAULT)
+                                    } catch (e: Exception) {
+                                        post.imageUrl
+                                    }
+                                } else {
+                                    post.imageUrl
+                                }
+                            }
+
+                            AsyncImage(
+                                model = imageModel,
+                                contentDescription = "Recipe Post Image",
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .height(260.dp)
-                                    .background(Color(0xFFD35400)),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Text(
-                                    text = post.caption.ifEmpty { "Sabor Recipe" },
-                                    color = Color.White,
-                                    fontWeight = FontWeight.Bold,
-                                    fontSize = 22.sp
-                                )
-                            }
+                                    .height(260.dp),
+                                contentScale = ContentScale.Crop
+                            )
 
                             // Action Bar Icons
                             Row(
