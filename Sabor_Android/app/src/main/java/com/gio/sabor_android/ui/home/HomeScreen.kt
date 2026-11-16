@@ -33,7 +33,7 @@ import com.google.firebase.auth.FirebaseAuth
 @Composable
 fun HomeScreen(
     viewModel: FeedViewModel = viewModel(),
-    onCreatePostClicked: () -> Unit = {} // Callback to trigger your post creation screen/modal
+    onCreatePostClicked: () -> Unit = {} // Callback to trigger post creation screen/modal
 ) {
     val posts by viewModel.posts.collectAsState()
     val currentUserId = FirebaseAuth.getInstance().currentUser?.uid ?: ""
@@ -101,7 +101,7 @@ fun HomeScreen(
                     }
                 }
 
-                // 2. Dynamic Live Posts from Firestore
+                // Dynamic Live Posts from Firestore
                 items(posts) { post ->
                     val isLikedByMe = post.likedByUsers[currentUserId] == true
 
@@ -182,7 +182,7 @@ fun HomeScreen(
                                 )
                             }
 
-                            // Action Bar Icons (Real-Time Like Hookup)
+                            // Action Bar Icons
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
